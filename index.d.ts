@@ -28,6 +28,8 @@ export interface INorsaniRestApiOptions {
   wpAPIPrefix?: string
   /* WC API version, default is `v3` */
   wCVersion?: WooCommerceRestApiVersion
+  /* Norsani API */
+  norsaniAPI?: string
   /* Norsani API version, default is `v1` */
   norsaniVersion?: NorsaniVersion
   /* Encoding, default is 'utf-8' */
@@ -58,6 +60,7 @@ export default class NorsaniRestApi {
   protected consumerSecret: string
   protected wpAPIPrefix: string
   protected wCVersion: WooCommerceRestApiVersion
+  protected norsaniAPI: string
   protected norsaniVersion: NorsaniVersion
   protected encoding: NorsaniRestApiEncoding
   protected queryStringAuth: boolean
