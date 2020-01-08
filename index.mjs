@@ -47,6 +47,7 @@ export default class NorsaniRestApi {
   _setDefaultsOptions(opt) {
     this.url = opt.url;
     this.wpAPIPrefix = opt.wpAPIPrefix || "wp-json";
+    this.norsaniAPI = opt.norsaniAPI || "";
     this.norsaniVersion = opt.norsaniVersion || 'v1';
     this.wCVersion = opt.wCVersion || 'wc/v3';
     this.isHttps = /^https/i.test(this.url);
@@ -143,7 +144,7 @@ export default class NorsaniRestApi {
 			api = this.wCVersion;
 		}
 		else {
-			api = 'norsani/' + this.norsaniVersion;
+			api = 'norsani/' + this.norsaniAPI + this.norsaniVersion;
     }
     
     const apiprefix = this.wpAPIPrefix + "/";
