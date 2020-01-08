@@ -9,12 +9,12 @@ describe("#options", () => {
       url: "https://test.dev",
       consumerKey: "ck_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
       consumerSecret: "cs_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-      wpAPIPrefix: "wp-rest",
+      wpAPIPrefix: "wp-rest"
     });
 
     const endpoint = "products";
     const expected = "https://test.dev/wp-rest/wc/v3/" + endpoint;
-    const requestapi = 'wc';
+    const requestapi = "wc";
     const url = api._getUrl(endpoint, requestapi);
 
     expect(url).toBe(expected);
@@ -25,13 +25,13 @@ describe("#methods", () => {
   const api = new NorsaniRestApi({
     url: "https://test.dev",
     consumerKey: "ck_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    consumerSecret: "cs_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    consumerSecret: "cs_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
   });
 
   test("_getUrl should return full endpoint URL", () => {
     const endpoint = "getmainmenu";
     const expected = "https://test.dev/wp-json/norsani/v1/" + endpoint;
-    const requestapi = 'norsani';
+    const requestapi = "norsani";
     const url = api._getUrl(endpoint, requestapi);
 
     expect(url).toBe(expected);
@@ -56,7 +56,7 @@ describe("#requests", () => {
   const api = new NorsaniRestApi({
     url: "https://test.dev",
     consumerKey: "ck_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    consumerSecret: "cs_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    consumerSecret: "cs_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
   });
 
   test("should return content for basic auth", () => {
@@ -68,7 +68,7 @@ describe("#requests", () => {
         ok: true
       });
 
-    return api.post("orders", 'wc', {}).then(response => {
+    return api.post("orders", "wc", {}).then(response => {
       expect(response.status).toBe(201);
     });
   });
@@ -81,7 +81,7 @@ describe("#requests", () => {
         ok: true
       });
 
-    return api.get("orders", 'wc', {}).then(response => {
+    return api.get("orders", "wc", {}).then(response => {
       expect(response.status).toBe(200);
     });
   });
@@ -94,7 +94,7 @@ describe("#requests", () => {
         ok: true
       });
 
-    return api.put("orders", 'wc', {}).then(response => {
+    return api.put("orders", "wc", {}).then(response => {
       expect(response.status).toBe(200);
     });
   });
@@ -107,7 +107,7 @@ describe("#requests", () => {
         ok: true
       });
 
-    return api.delete("orders", 'wc', {}).then(response => {
+    return api.delete("orders", "wc", {}).then(response => {
       expect(response.status).toBe(200);
     });
   });
@@ -120,7 +120,7 @@ describe("#requests", () => {
         ok: true
       });
 
-    return api.options("orders", 'wc', {}).then(response => {
+    return api.options("orders", "wc", {}).then(response => {
       expect(response.status).toBe(200);
     });
   });
@@ -130,7 +130,7 @@ describe("#requests", () => {
     const oAuth = new NorsaniRestApi({
       url: "http://test.dev",
       consumerKey: "ck_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-      consumerSecret: "cs_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      consumerSecret: "cs_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     });
 
     nock("http://test.dev/wp-json/wc/v3")
@@ -140,7 +140,7 @@ describe("#requests", () => {
         ok: true
       });
 
-    return oAuth.get("orders", 'wc', {}).then(response => {
+    return oAuth.get("orders", "wc", {}).then(response => {
       expect(response.status).toBe(200);
     });
   });

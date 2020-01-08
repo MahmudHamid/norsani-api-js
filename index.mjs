@@ -48,8 +48,8 @@ export default class NorsaniRestApi {
     this.url = opt.url;
     this.wpAPIPrefix = opt.wpAPIPrefix || "wp-json";
     this.norsaniAPI = opt.norsaniAPI || "";
-    this.norsaniVersion = opt.norsaniVersion || 'v1';
-    this.wCVersion = opt.wCVersion || 'wc/v3';
+    this.norsaniVersion = opt.norsaniVersion || "v1";
+    this.wCVersion = opt.wCVersion || "wc/v3";
     this.isHttps = /^https/i.test(this.url);
     this.consumerKey = opt.consumerKey;
     this.consumerSecret = opt.consumerSecret;
@@ -136,17 +136,15 @@ export default class NorsaniRestApi {
    */
   _getUrl(endpoint, requestapi, params) {
     var api = null;
-    
-    if (requestapi == 'wp') {
-			api = 'wp/v2';
-		}
-		else if (requestapi == 'wc') {
-			api = this.wCVersion;
-		}
-		else {
-			api = 'norsani/' + this.norsaniAPI + this.norsaniVersion;
+
+    if (requestapi === "wp") {
+      api = "wp/v2";
+    } else if (requestapi === "wc") {
+      api = this.wCVersion;
+    } else {
+      api = "norsani/" + this.norsaniAPI + this.norsaniVersion;
     }
-    
+
     const apiprefix = this.wpAPIPrefix + "/";
 
     let url = this.url.slice(-1) === "/" ? this.url : this.url + "/";
