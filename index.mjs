@@ -239,6 +239,10 @@ export default class NorsaniRestApi {
       options.data = JSON.stringify(data);
     }
 
+    if (params.cancelToken) {
+      options.cancelToken = params.cancelToken;
+    }
+
     // Allow set and override Axios options.
     options = { ...options, ...this.axiosConfig };
 
