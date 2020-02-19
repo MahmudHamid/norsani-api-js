@@ -208,7 +208,6 @@ export default class NorsaniRestApi {
       timeout: this.timeout,
       responseType: "json",
       headers: {
-        "User-Agent": "WooCommerce REST API - JS Client/" + this.classVersion,
         Accept: "application/json"
       }
     };
