@@ -201,15 +201,26 @@ export default class NorsaniRestApi {
   _request(method, endpoint, requestapi, data, params = {}) {
     const url = this._getUrl(endpoint, requestapi, params);
 
+    const headers = {
+      Accept: "application/json"
+    };
+    // only set "User-Agent" in node environment
+    // the checking method is identical to upstream axios
+    if (
+      typeof process !== "undefined" &&
+      Object.prototype.toString.call(process) === "[object process]"
+    ) {
+      headers["User-Agent"] =
+        "WooCommerce REST API - JS Client/" + this.classVersion;
+    }
+
     let options = {
       url: url,
       method: method,
       responseEncoding: this.encoding,
       timeout: this.timeout,
       responseType: "json",
-      headers: {
-        Accept: "application/json"
-      }
+      headers
     };
 
     if (this.isHttps) {
